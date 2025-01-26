@@ -11,13 +11,41 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
+
+void PrintContact(Contact contact)
+{
+	std::cout << contact.GetFirstName() << std::endl;
+	std::cout << contact.GetLastName() << std::endl;
+	std::cout << contact.GetNickname() << std::endl;
+	std::cout << contact.GetPhoneNumber() << std::endl;
+	std::cout << contact.GetDarkestSecret() << std::endl;
+}
+
 
 int	main()
 {
-	Phonebook	phonebook;
-	std::string data[5];
-	std::string	input;
-	int			i;
+	Contact contact = Contact();
 
-	while (42)
+	while (true)
+	{
+		std::string entry;
+		std::cout << "Enter a command : ";
+		getline(std::cin, entry);
+		if (entry == "ADD")
+		{
+
+		}
+		else if (entry == "SEARCH")
+		{
+
+		}
+		else if (entry == "EXIT")
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else {
+			std::cout << "Invalid command. Please, try again." << std::endl;
+		}
+	}
 }
