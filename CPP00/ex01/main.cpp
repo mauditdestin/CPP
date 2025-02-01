@@ -17,11 +17,11 @@
 
 void PrintContact(Contact contact)
 {
-	std::cout << contact.GetFirstName() << std::endl;
-	std::cout << contact.GetLastName() << std::endl;
-	std::cout << contact.GetNickname() << std::endl;
-	std::cout << contact.GetPhoneNumber() << std::endl;
-	std::cout << contact.GetDarkestSecret() << std::endl;
+	std::cout << "First Name : " + contact.GetFirstName() << std::endl;
+	std::cout << "Last Name : " + contact.GetLastName() << std::endl;
+	std::cout << "Nickname : " + contact.GetNickname() << std::endl;
+	std::cout << "Phone Number : " + contact.GetPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret : " + contact.GetDarkestSecret() << std::endl;
 }
 
 void AddContact(std::vector<Contact> &contacts)
