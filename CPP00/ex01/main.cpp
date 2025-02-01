@@ -12,6 +12,7 @@
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include <csignal>
 #include <vector>
 #include <iomanip>
 
@@ -22,6 +23,17 @@ void PrintContact(Contact contact)
 	std::cout << "Nickname : " + contact.GetNickname() << std::endl;
 	std::cout << "Phone Number : " + contact.GetPhoneNumber() << std::endl;
 	std::cout << "Darkest Secret : " + contact.GetDarkestSecret() << std::endl;
+}
+
+void	SignalError()
+{
+	std::cout << "\nError -> EOF signal called, closing the program !" << std::endl;
+	exit(EXIT_FAILURE);
+}
+
+void PrintError(std::string error)
+{
+    std::cout << "PhoneBook -> " << error << std::endl;
 }
 
 void AddContact(std::vector<Contact> &contacts)
