@@ -26,17 +26,18 @@ void	toUpper(char **str)
 
 int main(int argc, char **argv)
 {
-	int i;
+	int i = 1;
 
 	if (argc == 1) {
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	}
 	else {
-		i = 1;
 		while (argv[i])
 		{
 			toUpper(&argv[i]);
 			std::cout << argv[i];
+			if (argv[i + 1])
+				std::cout << " ";
 			i++;
 		}
 		std::cout << "\n";
