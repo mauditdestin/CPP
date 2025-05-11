@@ -12,26 +12,37 @@
 
 NAME = Phonebook
 
-SRCS = Contact.cpp PhoneBook.cpp main.cpp
-OBJS = $(SRCS:.cpp=.o)
+COMP = c++
 
-CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+COMPFLAGS = -Wall -Wextra -Werror
 
-%.o: %.cpp
-		$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+SRCDIR = srcs
+OBJDIR = obj
+SRCS = $(SRCDIR)/main.cpp\
+	   $(SRCDIR)/PhoneBook.cpp\
+	   $(SRCDIR)/Contact.cpp\
+
+OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
-		$(CC) $(FLAGS) $(OBJ) -o $(NAME) -lstdc++
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@$(COMP) $(COMPFLAGS) -c $< -o $@
+
+$(NAME): $(OBJDIR) $(OBJS)
+	@$(COMP) $(COMPFLAGS) $(OBJS) -o $(NAME)
+	@echo "Compiling $(NAME)"
+	@echo "Compilation finished :)"
+
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
 
 clean:
-		rm -rf $(OBJ)
-
+	@echo "Removing objects"
+	@rm -f $(OBJS)
+	@rm -rf $(OBJDIR)
 fclean: clean
-		rm -rf $(NAME)
-
+	@rm -f $(NAME)
+	@echo "Removing $(NAME)"
 re: fclean all
-
-.PHONY: all clean fclean re
+	

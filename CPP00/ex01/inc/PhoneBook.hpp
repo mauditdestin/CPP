@@ -19,4 +19,11 @@ class PhoneBook
 {
 	public:
 	PhoneBook();
+	void add_contact(Contact& contact, PhoneBook& Phonebook);
+	void update_array (Contact contact, PhoneBook& Phonebook, int index);
+	void set_index(int newindex);
+	int index;
+	void display_contacts(Contact contact, PhoneBook Phonebook);
+	void display_specific_contact(Contact contact, PhoneBook& Phonebook, int index);
+	Contact contacts[CONTACT_MAX];
 };
