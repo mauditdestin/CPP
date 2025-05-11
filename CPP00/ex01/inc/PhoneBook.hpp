@@ -10,3 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Contact.hpp"
+# define CONTACT_MAX 8
+#include <iomanip>
+
+class Contact;
+class PhoneBook
+{
+	public:
+	PhoneBook();
+};
