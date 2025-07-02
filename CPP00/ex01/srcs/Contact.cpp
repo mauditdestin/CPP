@@ -10,110 +10,200 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/PhoneBook.hpp"
+#include "../inc/Contact.hpp"
 
-std::string truncate(std::string str)
+Contact::Contact()
 {
-	if (str.length() < 10)
-	{
-		str = str.substr(0, 10);
-		str[9] = '.';
-	}
-		return (str);
 }
 
-int	verify_contact(Contact contact)
+Contact::~Contact()
 {
-	std::string data;
-	int rv;
-
-	rv = 0;
-	data = contact.get_first_name();
-	if (data.empty())
-		rv = 1;
-	data = contact.get_last_name();
-	if (data.empty())
-		rv = 1;
-		data = contact.get_nickname();
-	if (data.empty())
-		rv = 1;
-		data = contact.get_secret();
-	if (data.empty())
-		rv = 1;
-		data = contact.get_phone_numb();
-	if (data.empty())
-		rv = 1;
-		data = contact.get_phone_numb();
-	if (data.empty())
-		rv = 1;
 }
 
-void PhoneBook::add_contact(Contact &contact, PhoneBook &Phonebook)
-{
-	static int index;
+// Getters
 
-	std::string data;
-	std::cout << "Input First Name" << std::endl;
-	std::getline(std::cin, data);
-	contact.set_first_name(data);
-	std::cout << "Input Last Name" << std::endl;
-	std::getline(std::cin, data);
-	contact.set_last_name(data);
-	std::cout << "Input Nickname" << std::endl;
-	std::getline(std::cin, data);
-	contact.set_nickname(data);
-	std::cout << "Input Phone Number" << std::endl;
-	std::getline(std::cin, data);
-	contact.set_phone_number(data);
-	std::cout << "Input Darkest Secret" << std::endl;
-	std::getline(std::cin, data);
-	contact.set_secret(data);
-	contact.set_index(index);
-	if (verify_contact(contact))
-	{
-		std::cout << "Contact fields must contain something, please, try to ADD again." << std::endl;
-		return ;
-	}
-	std::cout << "Contact added successfully." << std::endl;
-	update_array(contact, Phonebook, index);
-	Phonebook.set_index(index);
-	index++;
-	if (index >= CONTACT_MAX)
-			index %= CONTACT_MAX;
+std::string Contact::get_first_name()
+{
+	return (firstName);
 }
 
-void PhoneBook::update_array(Contact contact, PhoneBook& Phonebook, int index)
+std::string Contact::get_last_name()
 {
-	Phonebook.contacts[index] = contact;
+	return (lastName);
 }
 
-void PhoneBook::display_contacts(Contact contact, PhoneBook Phonebook)
+std::string Contact::get_nickname()
 {
+	return (nickName);
+}
+
+std::string Contact::get_phone_number()
+{
+	return (phoneNumber);
+}
+
+std::string Contact::get_darkest_secret()
+{
+	return (darkestSecret);
+}
+
+// Setters
+
+void Contact::set_first_name(std::string firstName)
+{
+	this->firstName = firstName;
+}
+
+void Contact::set_last_name(std::string lastName)
+{
+	this->lastName = lastName;
+}
+
+void Contact::set_nickname(std::string nickName)
+{
+	this->nickName = nickName;
+}
+
+void Contact::set_phone_number(std::string phoneNumber)
+{
+	this->phoneNumber = phoneNumber;
+}
+
+void Contact::set_darkest_secret(std::string darkestSecret)
+{
+	this->darkestSecret = darkestSecret;
+}
+
+int Contact::create_contact()
+{
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string phoneNumber;
+	std::string darkestSecret;
+
 	int i = 0;
-	while (i < CONTACT_MAX)
+
+	/* CREATE FIRST NAME */
+	std::cout << "\e[1;35m" << "Enter first name: " << "\e[0m" << std::endl;
+	std::getline(std::cin, firstName);
+	if (std::cin.eof() || std::cin.bad() || std::cin.fail())
+		return (1);
+	if (firstName.empty())
 	{
-		contact = Phonebook.contacts[i];
-		std::cout << std::right << std::setw(10) << truncate(contact.get_index()) << "|";
-		std::cout << std::right << std::setw(10) << truncate(contact.get_first_name()) << "|";
-		std::cout << std::right << std::setw(10) << truncate(contact.get_last_name()) << "|";
-		std::cout << std::right << std::setw(10) << truncate(contact.get_nickname()) << "|";
-		std::cout << std::endl;
+		std::cout << "\e[1;91m" << "First name cannot be empty!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
 	}
-}
+	if (firstName.length() > 50)
+	{
+		std::cout << "\e[1;91m" << "First name is too long!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
+	}
+	while (firstName[i])
+	{
+		if (!isalpha(firstName[i]) && !isdigit(firstName[i]))
+		{
+			std::cout << "\e[1;91m" << "Invalid first name!" << "\U0001F621" << "\e[0m" << std::endl;
+			return (0);
+		}
+		i++;
+	}
 
-void PhoneBook::display_specific_contact(Contact contact, PhoneBook& Phonebook, int index)
-{
-	contact = Phonebook.contacts[index];
-	std::cout << contact.get_first_name() << std::endl;
-	std::cout << contact.get_last_name() << std::endl;
-	std::cout << contact.get_nickname() << std::endl;
-	std::cout << contact.get_phone_numb() << std::endl;
-	std::cout << contact.get_secret() << std::endl;
-}
+	/* CREATE LAST NAME */
+	std::cout << "\e[1;35m" << "Enter last name: " << "\e[0m" << std::endl;
+	std::getline(std::cin, lastName);
+	if (std::cin.eof() || std::cin.bad() || std::cin.fail())
+		return (1);
+	if (lastName.empty())
+	{
+		std::cout << "\e[1;91m" << "Last name cannot be empty!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
+	}
+	if (lastName.length() > 50)
+	{
+		std::cout << "\e[1;91m" << "Last name is too long!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
+	}
+	i = 0;
+	while (lastName[i])
+	{
+		if (!isalpha(lastName[i]) && !isdigit(lastName[i]))
+		{
+			std::cout << "\e[1;91m" << "Invalid last name!" << "\U0001F621" << "\e[0m" << std::endl;
+			return (0);
+		}
+		i++;
+	}
 
-void PhoneBook::set_index(int newindex)
-{
-	if (index == CONTACT_MAX - 1)
-			return ;
-	index = newindex;
+	/* CREATE NICKNAME */
+	std::cout << "\e[1;35m" << "Enter nickname: " << "\e[0m" << std::endl;
+	std::getline(std::cin, nickName);
+	if (std::cin.eof() || std::cin.bad() || std::cin.fail())
+		return (1);
+	if (nickName.empty())
+	{
+		std::cout << "\e[1;91m" << "Nickname cannot be empty!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
+	}
+	if (nickName.length() > 50)
+	{
+		std::cout << "\e[1;91m" << "Nickname is too long!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
+	}
+	i = 0;
+	while (nickName[i])
+	{
+		if (!isalpha(nickName[i]) && !isdigit(nickName[i]))
+		{
+			std::cout << "\e[1;91m" << "Invalid nickname!" << "\U0001F621" << "\e[0m" << std::endl;
+			return (0);
+		}
+		i++;
+	}
+
+	/* CREATE PHONE NUMBER */
+	std::cout << "\e[1;35m" << "Enter phone number: " << "\e[0m" << std::endl;
+	std::getline(std::cin, phoneNumber);
+	if (std::cin.eof() || std::cin.bad() || std::cin.fail())
+		return (1);
+	if (isalpha(phoneNumber[0]) || phoneNumber.length() != 10)
+	{
+		std::cout << "\e[1;91m" << "Invalid phone number!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
+	}
+
+	/* CREATE DARKEST SECRET */
+	std::cout << "\e[1;35m" << "Enter darkest secret: " << "\e[0m" << std::endl;
+	std::getline(std::cin, darkestSecret);
+	if (std::cin.eof() || std::cin.bad() || std::cin.fail())
+		return (1);
+	if (darkestSecret.empty())
+	{
+		std::cout << "\e[1;91m" << "Darkest secret cannot be empty!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
+	}
+	if (darkestSecret.length() > 50)
+	{
+		std::cout << "\e[1;91m" << "Darkest secret is too long!" << "\U0001F621" << "\e[0m" << std::endl;
+		return (0);
+	}
+	i = 0;
+	while (darkestSecret[i])
+	{
+		if (!isalpha(darkestSecret[i]) && !isdigit(darkestSecret[i]) && !isspace(darkestSecret[i]))
+		{
+			std::cout << "\e[1;91m" << "Invalid darkest secret!" << "\U0001F621" << "\e[0m" << std::endl;
+			return (0);
+		}
+		i++;
+	}
+
+	set_first_name(firstName);
+	set_last_name(lastName);
+	set_nickname(nickName);
+	set_phone_number(phoneNumber);
+	set_darkest_secret(darkestSecret);
+
+	std::cout << "\e[1;32m" << "Contact added to the phonebook!" << "\U0001F44D" << "\e[0m" << std::endl;
+	return (0);
 }

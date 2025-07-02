@@ -10,20 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-# define CONTACT_MAX 8
-#include <iomanip>
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-class Contact;
-class PhoneBook
+# include "Contact.hpp"
+# include <iostream>
+# include <iomanip>
+# include <string>
+
+class Phonebook
 {
-	public:
-	PhoneBook();
-	void add_contact(Contact& contact, PhoneBook& Phonebook);
-	void update_array (Contact contact, PhoneBook& Phonebook, int index);
-	void set_index(int newindex);
-	int index;
-	void display_contacts(Contact contact, PhoneBook Phonebook);
-	void display_specific_contact(Contact contact, PhoneBook& Phonebook, int index);
-	Contact contacts[CONTACT_MAX];
+private:
+	Contact contacts[8];
+
+public:
+	Phonebook();
+	~Phonebook();
+
+	int		get_nb_contacts();
+	int		search_contact();
+	int		add_contact();
+	void	print_contact();
+	void	print_info(int index);
+	
+	std::string truncate(std::string str);
 };
+
+#endif
