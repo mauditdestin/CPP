@@ -10,3 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
+
+class Zombie
+{
+	public:
+			Zombie();
+			~Zombie();
+			void announce();
+	private:
+			std::string name;
+};
