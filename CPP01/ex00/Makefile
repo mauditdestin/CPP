@@ -11,35 +11,42 @@
 # **************************************************************************** #
 
 NAME = brainz
-CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
-RM = rm -rf
-SRC_DIR = src/
-OBJ_DIR = obj/
 
-SRCS = $(SRC_DIR)main.cpp \
-		$(SRC_DIR)Zombie.cpp \
-		$(SRC_DIR)newZombie.cpp \
-		$(SRC_DIR)randomChump.cpp \
+COMP = c++
+COMPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-OBJ = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
+SRCDIR = src
+OBJDIR = obj
 
-all: $(OBJ_DIR) $(NAME)
+SRCS = $(SRCDIR)/main.cpp \
+		$(SRCDIR)/Zombie.cpp \
+		$(SRCDIR)/newZombie.cpp \
+		$(SRCDIR)/randomChump.cpp \
 
-$(NAME): $(OBJ)
-		$(CC) $(FLAGS) $^ -o $@
+OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)%.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+all: $(NAME)
 
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@$(COMP) $(COMPFLAGS) -c $< -o $@
+	@echo "Compiling $<"
+
+$(NAME): $(OBJDIR) $(OBJS)
+	@$(COMP) $(COMPFLAGS) $(OBJS) -o $(NAME)
+	@echo "Compiling $(NAME)"
+	@echo "Compilation finished :)"
+
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
 
 clean:
-	@$(RM) $(OBJ_DIR)
+	@echo "Removing objects"
+	@rm -f $(OBJS)
+	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@$(RM) $(NAME)
+	@rm -f $(NAME)
+	@echo "Removing $(NAME)"
 
 re: fclean all
 
