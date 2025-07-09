@@ -11,8 +11,19 @@
 /* ************************************************************************** */
 
 #include "../inc/Account.hpp"
+#include "ctime"
+#include <iostream>
 
 int	Account::_nbAccounts = 0;
 int Account::_totalNbWithdrawals = 0;
 int	Account::_totalNbDeposits = 0;
 int Account::_totalAmount = 0;
+
+void	Account::_displayTimestamp(void)
+{
+	time_t	now = time(NULL);
+	char	timestamp[20];
+	struct tm	*LocalTime = localtime(&now);
+	strftime(timestamp, sizeof(timestamp), "[%Y%m%d_%H%M%S] ", LocalTime);
+	std::cout << timestamp;
+}
