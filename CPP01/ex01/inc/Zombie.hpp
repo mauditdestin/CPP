@@ -14,7 +14,6 @@
 
 #include <cstdlib>
 #include <iostream>
-#include <sstream>
 
 class Zombie
 {
@@ -22,6 +21,9 @@ class Zombie
 			Zombie();
 			~Zombie();
 			void announce();
+			void setName(std::string name);
 	private:
 			std::string name;
 };
+
+Zombie *zombieHorde(int n, std::string name);
