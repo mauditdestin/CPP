@@ -12,19 +12,24 @@
 
 #include "../inc/main.hpp"
 
-void replace(std::string *line, std::string to_replace, std::string new_str)
+void replace(std::string *line, const std::string &to_replace, const std::string &new_str)
 {
-	size_t start_pos;
+	size_t start_pos = 0;
 
-	while ((start_pos = (*line).find(to_replace)) != std::string::npos)
+	if (to_replace.empty())
+		return;
+
+	while ((start_pos = line->find(to_replace, start_pos)) != std::string::npos)
 	{
-		(*line).erase(start_pos, to_replace.length());
-		(*line).insert(start_pos, new_str);
+		line->erase(start_pos, to_replace.length());
+		line->insert(start_pos, new_str);
+		start_pos += new_str.length();
 	}
+
 }
 
 int main(int agrc, char **argv)
 {
-
+	output.close();
 	return EXIT_SUCCESS;
 }
