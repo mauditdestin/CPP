@@ -73,3 +73,17 @@ void	Account::_displayTimestamp(void)
 	strftime(timestamp, sizeof(timestamp), "[%Y%m%d_%H%M%S] ", LocalTime);
 	std::cout << timestamp;
 }
+
+void Account::displayAccountsInfos(void)
+{
+	Account::_displayTimestamp();
+	std::cout << "accounts:" << Account::getNbAccounts() << ";total:" << Account::getTotalAmount();
+	std::cout << ";deposits:" << Account::getNbDeposits << ";withdrawals:" << Account::getNbWithdrawals << std::endl;
+}
+
+void Account::displayStatus(void) const
+{
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amounts:" << checkAmount();
+	std::cout << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
+}
