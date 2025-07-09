@@ -19,5 +19,15 @@ int main(int argc, char **argv)
 		std::cout << "Correct usage: ./moarbrainz zombieName zombieCount" << std::endl;
 		return (EXIT_FAILURE);
 	}
-	
+	int zombieCount = std::atoi(argv[2]);
+	Zombie* horde = zombieHorde(zombieCount, argv[1]);
+
+	int i = 0;
+	while (i < zombieCount)
+	{
+		horde[i].announce();
+		i++;
+	}
+	delete[] horde;
+	return (EXIT_SUCCESS);
 }

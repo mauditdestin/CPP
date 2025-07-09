@@ -14,7 +14,10 @@
 
 std::string getName(std::string name, int index)
 {
-	return name + std::to_string(index + 1);
+	std::ostringstream oss;
+	oss << name;
+	oss << index + 1;
+	return oss.str();
 }
 
 void Zombie::setName(std::string name)

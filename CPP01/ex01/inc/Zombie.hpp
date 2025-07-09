@@ -14,7 +14,7 @@
 
 #include <cstdlib>
 #include <iostream>
-
+#include <sstream>
 class Zombie
 {
 	public:

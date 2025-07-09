@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = maorbrainz
+NAME = moarbrainz
 
 COMP = c++
 COMPFLAGS = -Wall -Wextra -Werror -std=c++98
