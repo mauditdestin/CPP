@@ -19,6 +19,7 @@ SRCDIR = src
 OBJDIR = obj
 
 SRCS = $(SRCDIR)/main.cpp \
+		$(SRCDIR)/Harl.cpp \
 
 OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
 
