@@ -11,3 +11,13 @@
 /* ************************************************************************** */
 
 #include "../inc/Zombie.hpp"
+
+int main(int argc, char **argv)
+{
+	if (argc != 3)
+	{
+		std::cout << "Correct usage: ./moarbrainz zombieName zombieCount" << std::endl;
+		return (EXIT_FAILURE);
+	}
+	
+}
