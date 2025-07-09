@@ -19,6 +19,19 @@ int Account::_totalNbWithdrawals = 0;
 int	Account::_totalNbDeposits = 0;
 int Account::_totalAmount = 0;
 
+Account::Account(int initial_deposit)
+{
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	_accountIndex = getNbAccounts();
+	_amount = initial_deposit;
+	Account::_totalAmount += initial_deposit;
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << checkAmount();
+	std::cout << ";created" << std::endl;
+	Account::_nbAccounts++;
+}
+
 void	Account::_displayTimestamp(void)
 {
 	time_t	now = time(NULL);
