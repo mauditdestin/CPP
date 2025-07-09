@@ -17,6 +17,7 @@
 class Harl
 {
 	public:
+		typedef void (Harl::*MemberFunction)(void);
 		Harl();
 		~Harl();
 		void complain(std::string level);

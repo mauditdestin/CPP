@@ -44,13 +44,13 @@ void Harl::error()
 
 void Harl::complain(std::string arg)
 {
-	void (Harl::*tab[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	MemberFunction tab[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string msg[4] = {"debug", "info", "warning", "error"};
 	int i = 0;
 	while (i < 4)
 	{
 		if (msg[i] == arg)
-			(this->*(tab[i]))();
+			(this->*tab[i])();
 		i++;
 	}
 }
