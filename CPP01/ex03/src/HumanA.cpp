@@ -13,4 +13,13 @@
 #include "../inc/HumanA.hpp"
 #include "../inc/Weapon.hpp"
 
-HumanA::
+HumanA::HumanA(std::string name, class Weapon *_Weapon) :name(name), _Weapon(_Weapon)
+{
+	std::cout << this->name << " spawned" << std::endl;
+}
+
+HumanA::~HumanA()
+{
+	std::cout << this->name << " died" << std::endl;
+}
+
