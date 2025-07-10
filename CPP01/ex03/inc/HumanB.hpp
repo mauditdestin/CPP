@@ -11,3 +11,18 @@
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
+#include "../inc/Weapon.hpp"
+
+class HumanB
+{
+	public:
+			HumanB(std::string name);
+			~HumanB();
+			void attack() const;
+			void setWeapon(Weapon &newWeapon);
+	private:
+			Weapon *_Weapon;
+			std:: string name;
+};
