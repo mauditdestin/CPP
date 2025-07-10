@@ -42,38 +42,55 @@ void Harl::error()
 	std::cout << "i wanna speak to the manager" << std::endl;
 }
 
-void	Harl::complain(std::string arg)
-{
-	MemberFunction tab[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string msg[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int index = -1;
+void Harl::complain(std::string arg) {
+    MemberFunction fct[4] = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+    std::string msg[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+    int index = -1;
 
-	int i = 0;
-	while (i < 4)
-	{
-		if (arg == msg[i])
-		{
-			index = i;
-			break;
-		}
-	}
+    int i = 0;
+    while (i < 4) {
+        if (arg == msg[i]) {
+            index = i;
+            break;
+        }
+        i++;
+    }
 
-	switch (index)
-	{
-		case 0:
-		case 1:
-		case 2:
-		case 3: {
-			int j = index;
-			while (j < 4)
-			{
-				(this->*tab[j])();
-				j++;
-			}
-			break;
-		}
-		default:
-			std::cout << "probably complaining about something insignificant" << std::endl;
-			break;
-	}
+    switch (index) {
+        case 0: {
+            int j = 0;
+            while (j < 4) {
+                (this->*fct[j])();
+                j++;
+            }
+            break;
+        }
+        case 1: {
+            int j = 1;
+            while (j < 4) {
+                (this->*fct[j])();
+                j++;
+            }
+            break;
+        }
+        case 2: {
+            int j = 2;
+            while (j < 4) {
+                (this->*fct[j])();
+                j++;
+            }
+            break;
+        }
+        case 3: {
+            int j = 3;
+            while (j < 4) {
+                (this->*fct[j])();
+                j++;
+            }
+            break;
+        }
+        default:
+            std::cout << "probably complaining about something insignificant" << std::endl;
+            break;
+    }
 }
