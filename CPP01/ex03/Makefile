@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = moarbrainz
+NAME = attack
 
 COMP = c++
 COMPFLAGS = -Wall -Wextra -Werror -std=c++98

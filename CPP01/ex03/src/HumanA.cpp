@@ -23,3 +23,10 @@ HumanA::~HumanA()
 	std::cout << this->name << " died" << std::endl;
 }
 
+void HumanA::attack() const
+{
+	if (!_Weapon)
+		std::cout << this->name << " tries to attack but fails miserably" << std::endl;
+	else
+		std::cout << this->name << " attacks with their" << this->_Weapon->getType() << std::endl;
+}
