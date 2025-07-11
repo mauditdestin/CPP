@@ -11,3 +11,19 @@
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
+
+class Fixed
+{
+	public:
+			Fixed();
+			~Fixed();
+			Fixed(Fixed const & src);
+			Fixed & operator = (Fixed const&rhs);
+			int getRawBits() const;
+			void setRawBits(int const raw);
+	private:
+			int fixedPointValue;
+			static const int nFractBits = 8;
+};
