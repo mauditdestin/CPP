@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include <iostream>
+#include <cmath>
+#include <ostream>
+
+class Fixed{
+    public:
+        Fixed();
+        ~Fixed();
+        Fixed(Fixed const &src);
+        Fixed & operator=(Fixed const &rhs);
+        Fixed(int const n);
+        Fixed(float const n);
+        int getRawBits(void)const;
+        void setRawBits(int const raw);
+        float toFloat(void)const;
+        int toInt(void)const;
+    private:
+        int fixedPointValue;
+        static const int fractionalBits = 8;
+};
+
+std::ostream & operator << (std::ostream &o, Fixed const &rhs);
