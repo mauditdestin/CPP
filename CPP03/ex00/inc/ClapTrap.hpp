@@ -14,19 +14,27 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
+
+#ifndef PRETTY
+#define PRETTY false
+#endif
 
 class ClapTrap
 {
-    protected:
+    private:
         std::string _name;
         unsigned int _hitPoints;
         unsigned int _energyPoints;
         unsigned int _attackDamage;
     public:
-        ClapTrap(const std::string &name);
-        ~ClapTrap();
+        ClapTrap(void);
+        ClapTrap(std::string name);
+        ClapTrap(ClapTrap &ref);
+        ~ClapTrap(void);
 
-        void attack(const std::string &target);
+        ClapTrap &operator=(ClapTrap &ref);
+        void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };

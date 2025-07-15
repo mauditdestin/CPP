@@ -19,9 +19,7 @@ SRCDIR = src
 OBJDIR = obj
 
 SRCS = $(SRCDIR)/main.cpp \
-		$(SRCDIR)/bsp.cpp \
-		$(SRCDIR)/Point.cpp \
-		$(SRCDIR)/Fixed.cpp \
+		$(SRCDIR)/ClapTrap.cpp \
 
 OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
 
