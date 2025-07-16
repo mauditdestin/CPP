@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <climits>
 
 #ifndef PRETTY
 #define PRETTY false
