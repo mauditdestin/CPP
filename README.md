@@ -25,3 +25,16 @@ Chaque module dispose de son propre `Makefile`. Pour compiler un exercice :
 cd CPPXX
 cd exXX
 make
+```
+
+---
+
+## 🎯 Objectifs pédagogiques
+
+- Comprendre les bases du langage C++
+
+- Approfondir la programmation orientée objet
+
+- Maîtriser les mécanismes d’héritage et de surcharge
+
+- S'initier aux bonnes pratiques en C++ moderne
