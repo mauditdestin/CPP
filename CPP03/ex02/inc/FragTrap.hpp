@@ -10,3 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include "ClapTrap.hpp"
+#include <iostream>
+
+class FragTrap: public ClapTrap
+{
+	private:
+		
+	public:
+		FragTrap(void);
+		FragTrap(std::string name);
+		FragTrap(FragTrap &ref);
+		~FragTrap(void);
+		FragTrap &operator=(FragTrap &ref);
+		void highFivesGuys(void);
+};
