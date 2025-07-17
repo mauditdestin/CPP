@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "../inc/ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void) : ClapTrap("ScavTrap")
 {
