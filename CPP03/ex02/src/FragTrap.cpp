@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "../inc/FragTrap.hpp"
 
 FragTrap::FragTrap(void) : ClapTrap("FragTrap")
 {

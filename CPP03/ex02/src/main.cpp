@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "../inc/ClapTrap.hpp"
+#include "../inc/ScavTrap.hpp"
+#include "../inc/FragTrap.hpp"
 
 int	main(void)
 {
