@@ -30,7 +30,6 @@ DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name)
 	ScavTrap::_attackDamage = FragTrap::_attackDamage;
 }
 
-// Changez la signature ici et corrigez la liste d'initialisation
 DiamondTrap::DiamondTrap(DiamondTrap& other) : FragTrap(other), ScavTrap(other)
 {
 	*this = other;
