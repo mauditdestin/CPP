@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = diamondTrap
+NAME = Animal
 
 COMP = c++
 COMPFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -19,9 +19,11 @@ SRCDIR = src
 OBJDIR = obj
 
 SRCS = $(SRCDIR)/main.cpp \
-		$(SRCDIR)/Sorcerer.cpp \
-		$(SRCDIR)/Victim.cpp \
-		$(SRCDIR)/Peon.cpp \
+	   $(SRCDIR)/Animal.cpp \
+	   $(SRCDIR)/Dog.cpp \
+	   $(SRCDIR)/Cat.cpp \
+	   $(SRCDIR)/WrongAnimal.cpp \
+	   $(SRCDIR)/WrongCat.cpp
 
 OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
 

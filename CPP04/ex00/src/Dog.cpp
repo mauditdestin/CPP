@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "../inc/Dog.hpp"
 
 Dog::Dog()
 {
@@ -18,7 +18,7 @@ Dog::Dog()
     Animal::_type = "Dog";
 }
 
-Dog::Dog(Dog &copy)
+Dog::Dog(Dog &copy) : Animal(copy)
 {
     std::cout << "Dog copy constructor called" << std::endl;
     this->_type = copy.getType();

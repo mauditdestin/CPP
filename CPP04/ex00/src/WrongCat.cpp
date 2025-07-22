@@ -17,3 +17,13 @@ WrongCat::WrongCat()
     std::cout << "WrongCat default constructor called" << std::endl;
     WrongAnimal::_type = "WrongCat";
 }
+
+WrongCat::~WrongCat()
+{
+    std::cout << "WrongCat destructor called" << std::endl;
+}
+
+void WrongCat::makeSound(void) const
+{
+    std::cout << "Wrong Meow!" << std::endl;
+}
