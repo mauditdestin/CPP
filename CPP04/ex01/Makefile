@@ -23,7 +23,8 @@ SRCS = $(SRCDIR)/main.cpp \
 	   $(SRCDIR)/Dog.cpp \
 	   $(SRCDIR)/Cat.cpp \
 	   $(SRCDIR)/WrongAnimal.cpp \
-	   $(SRCDIR)/WrongCat.cpp
+	   $(SRCDIR)/WrongCat.cpp \
+	   $(SRCDIR)/Brain.cpp \
 
 OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
 
