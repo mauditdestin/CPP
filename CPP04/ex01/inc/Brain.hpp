@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <string>
-#include "Animal.hpp"
+// #include "Animal.hpp"
 
 class Brain
 {
