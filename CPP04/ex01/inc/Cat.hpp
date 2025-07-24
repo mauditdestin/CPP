@@ -12,15 +12,17 @@
 
 #pragma once
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
 	private:
-		/* data */
+		Brain *_brain;
 	public:
 		Cat();
 		Cat(std::string name);
 		Cat(Cat &copy);
 		void makeSound(void) const;
 		~Cat();
+		Brain *getBrain(void) const;
 };
