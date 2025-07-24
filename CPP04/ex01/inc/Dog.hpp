@@ -24,4 +24,5 @@ class Dog : public Animal
 		void makeSound(void) const;
 		~Dog();
         Dog & operator = ( Dog const & value );
+		Brain *getBrain(void) const;
 };
