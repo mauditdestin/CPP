@@ -12,6 +12,7 @@
 
 #pragma once
 #include <iostream>
+#include "Brain.hpp"
 
 class Animal
 {
@@ -26,4 +27,5 @@ class Animal
 		std::string getType() const;
 		void		setType(std::string type);
 		virtual	void makeSound() const;
+		virtual Brain *getBrain() const = 0;
 };
