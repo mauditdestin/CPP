@@ -49,6 +49,16 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return ("Bureaucrat Grade is too low");
 }
 
+std::string const Bureaucrat::getName(void) const
+{
+    return (this->_name);
+}
+
+int Bureaucrat::getGrade(void) const
+{
+    return (this->_grade);
+}
+
 void Bureaucrat::IncGrade(void)
 {
     if (this->_grade == 1)
