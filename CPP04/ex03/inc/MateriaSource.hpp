@@ -1,9 +1,9 @@
 #pragma once
 
-# include "IMateriaSource.hpp"
-# include <iostream>
-# include <string>
-# include <string.h>
+#include "IMateriaSource.hpp"
+#include <iostream>
+#include <string>
+#include <string.h>
 
 class MateriaSource : public IMateriaSource {
 	public:
@@ -22,5 +22,3 @@ class MateriaSource : public IMateriaSource {
 };
 
 std::ostream	&operator<<(std::ostream &o, MateriaSource const & i);
-
-#endif
