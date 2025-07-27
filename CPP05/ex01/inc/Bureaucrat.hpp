@@ -3,9 +3,10 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
 
 class Bureaucrat {
-    private:
+    protected:
         Bureaucrat(void);
         const std::string _name;
         unsigned short int _grade;
@@ -24,6 +25,7 @@ class Bureaucrat {
         };
         std::string const getName(void) const;
         int getGrade(void) const;
+        void    SignForm(Form &form) const;
 
 };
 
