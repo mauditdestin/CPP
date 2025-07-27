@@ -1,7 +1,7 @@
 #pragma once
 
-# include <iostream>
-# include "Form.hpp"
+#include <iostream>
+#include "Form.hpp"
 
 class Form;
 
@@ -10,15 +10,6 @@ class Bureaucrat
 	private:
 		std::string _name;
 		int	_grade;
-		class SignException : public std::exception
-		{
-			public :
-			 
-			virtual const char *what() const throw()
-			{
-				return ("bureaucrat couldn't sign because grade is insuffisent");
-			}
-		};
 		class GradeTooHighException : public std::exception
 		{
 			public :
@@ -50,6 +41,8 @@ class Bureaucrat
 		void	signForm(Form & Form);
 		void	incrementGrade(void);
 		void	decrementGrade(void);
+		void	execute(Form const &Form) const;
+
 };
 
 std::ostream & operator<<(std::ostream & out, Bureaucrat const & value);
