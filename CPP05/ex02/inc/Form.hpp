@@ -1,6 +1,6 @@
 #pragma once
-# include <iostream>
-# include "Bureaucrat.hpp"
+#include <iostream>
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -34,16 +34,17 @@ class Form
 		Form(std::string name);
 		Form(Form &copy);
 		Form(std::string name, bool isSigned, int gradeSign, int gradeExec);
-		~Form();
-		void beSigned(Bureaucrat bur);
+		virtual ~Form();
+		void beSigned(Bureaucrat const & bur);
 		/* GETTERS */
 		
 		std::string getName(void) const;
-		// bool getSigned(void) const;
+		bool getSigned(void) const;
 		int getGradeSign(void) const;
 		int getGradeExec(void) const;
-		Form & operator = ( Form const & value );
 		bool getSignStatus(void) const;
+		Form & operator = ( Form const & value );
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 		/* SETTERS */
 		void	setSigned(bool i);
 };
