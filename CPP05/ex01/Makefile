@@ -7,6 +7,8 @@ SRCDIR = src
 OBJDIR = obj
 
 SRCS = $(SRCDIR)/main.cpp \
+	   $(SRCDIR)/Bureaucrat.cpp \
+	   $(SRCDIR)/Form.cpp \
 
 
 OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
