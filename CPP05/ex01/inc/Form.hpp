@@ -1,38 +1,51 @@
 #pragma once
-
-#include <iostream>
-#include <string>
-#include <exception>
-#include "Bureaucrat.hpp"
+# include <iostream>
+# include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form {
-    protected:
-        Form(void);
-    public:
-        Form(std::string const name, int signGrade, int execGrade);
-        Form(Form const &src);
-        virtual ~Form(void);
-        Form &operator=(Form const &rhs);
-        class GradeTooLowException : public std::exception {
-            virtual const char *what() const throw();
-        };
-        class GradeTooHighException : public std::exception {
-            virtual const char *what() const throw();
-        };
+class Form
+{
+	private:
+		const std::string  	_name;
+		bool				_isSigned;		
+		const int					_gradeSign;
+		const int					_gradeExec;
+		class GradeTooHighException : public std::exception
+		{
+				public :
+				
+				virtual const char *what() const throw()
+				{
+					return (" couldn't sign form because grade is too high");
+				}
+		};
+		class GradeTooLowException : public std::exception
+		{
+				public :
+				
+				virtual const char *what() const throw()
+				{
+					return(" couldn't sign form because grade is too low");
+				}
+		};
 
-        std::string const getName(void) const;
-        unsigned short int getSignGrade(void) const;
-        unsigned short int getExecGrade(void) const;
-        bool getSignState(void) const;
-        void beSigned(Bureaucrat const &sb);
-    protected:
-    private:
-        std::string const _name;
-        unsigned short int const _signGrade;
-        unsigned short int const _execGrade;
-        bool _isSigned;
+	public:
+		Form(std::string name);
+		Form(Form &copy);
+		Form(std::string name, bool isSigned, int gradeSign, int gradeExec);
+		~Form();
+		void beSigned(Bureaucrat bur);
+		/* GETTERS */
+		
+		std::string getName(void) const;
+		// bool getSigned(void) const;
+		int getGradeSign(void) const;
+		int getGradeExec(void) const;
+		Form & operator = ( Form const & value );
+		bool getSignStatus(void) const;
+		/* SETTERS */
+		void	setSigned(bool i);
 };
 
-std::ostream &operator<<(std::ostream &o, Form const &i);
+std::ostream & operator<<(std::ostream & out, Form const & value);
